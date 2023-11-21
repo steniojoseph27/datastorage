@@ -3,3 +3,12 @@
 ################################################################################
 
 /.vs/datastorage/v17
+/.vs
+/DataStorage/.vs
+/DataStorage/BusinessLogicLayer/obj
+/DataStorage/DataAccessLayer/obj
+/DataStorage/PresentationLayer/bin/Debug/net6.0
+/DataStorage/PresentationLayer/obj
+/DataStorage/PresentationLayer/Properties
+/DataStorage/BusinessLogicLayer/bin/Debug/net6.0
+/DataStorage/DataAccessLayer/bin/Debug/net6.0
