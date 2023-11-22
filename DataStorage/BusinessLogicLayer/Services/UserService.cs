@@ -1,6 +1,6 @@
 ﻿using BusinessLogicLayer.Helper;
 using DataAccessLayer.Entities;
-using DataAccessLayer.Interfaces;
+using DataAccessLayer.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
