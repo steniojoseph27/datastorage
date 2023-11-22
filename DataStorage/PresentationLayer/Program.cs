@@ -1,17 +1,19 @@
 using DataAccessLayer.Repositories;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-
 builder.Services.AddLogging();
-builder.Services.AddTransient<UserRepository>();
+
+var connectionString = builder.Configuration.GetConnectionString("SqlConnectionString");
+builder.Services.AddTransient<UserRepository>(provider => new UserRepository(connectionString, provider.GetRequiredService<ILogger<UserRepository>>()));
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>

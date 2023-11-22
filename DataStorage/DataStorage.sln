@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccessLayer", "DataAcce
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessLogicLayer", "BusinessLogicLayer\BusinessLogicLayer.csproj", "{D75A48DF-448E-45DB-9742-B22D2C4AB9CA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataStorageTest", "DataStorageTest\DataStorageTest.csproj", "{45B0ABF7-AD4B-44C3-A5E1-544034034565}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{D75A48DF-448E-45DB-9742-B22D2C4AB9CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D75A48DF-448E-45DB-9742-B22D2C4AB9CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D75A48DF-448E-45DB-9742-B22D2C4AB9CA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{45B0ABF7-AD4B-44C3-A5E1-544034034565}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45B0ABF7-AD4B-44C3-A5E1-544034034565}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45B0ABF7-AD4B-44C3-A5E1-544034034565}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45B0ABF7-AD4B-44C3-A5E1-544034034565}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
