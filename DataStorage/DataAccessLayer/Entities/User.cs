@@ -13,9 +13,6 @@ namespace DataAccessLayer.Entities
         public string? LastName { get; set; }
         public int Age { get; set; }
         public DateTime DateOfBirth { get; set; }
-        public string? Country { get; set; }
-        public string? Province { get; set; }
-        public string? City { get; set; }
-        public string? PasswordHash { get; set; }
+        public int AddressID { get; set; }
     }
 }
