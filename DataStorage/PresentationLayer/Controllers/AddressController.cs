@@ -1,4 +1,5 @@
-﻿using BusinessLogicLayer.Services;
+﻿using BusinessLogicLayer.Interfaces;
+using BusinessLogicLayer.Services;
 using DataAccessLayer.Entities;
 using Microsoft.AspNetCore.Mvc;
 using PresentationLayer.Models;
@@ -10,9 +11,9 @@ namespace PresentationLayer.Controllers
     [Route("[controller]")]
     public class AddressesController : ControllerBase
     {
-        private readonly AddressService _addressService;
+        private readonly IAddressService _addressService;
 
-        public AddressesController(AddressService addressService)
+        public AddressesController(IAddressService addressService)
         {
             _addressService = addressService;
         }

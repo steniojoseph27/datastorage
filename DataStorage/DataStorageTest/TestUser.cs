@@ -29,8 +29,7 @@ namespace DataStorageTest
                 FirstName = "Stenio",
                 LastName = "Joseph",
                 Age = 33,
-                DateOfBirth = DateTime.Now,
-                AddressID = 1
+                DateOfBirth = DateTime.Now
             };
 
             await _userService.CreateUserAsync(user);

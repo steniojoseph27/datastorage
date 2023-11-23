@@ -13,6 +13,5 @@ namespace DataAccessLayer.Entities
         public string? LastName { get; set; }
         public int Age { get; set; }
         public DateTime DateOfBirth { get; set; }
-        public int AddressID { get; set; }
     }
 }

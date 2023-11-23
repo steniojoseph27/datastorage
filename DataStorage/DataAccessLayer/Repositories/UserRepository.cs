@@ -28,7 +28,7 @@ namespace DataAccessLayer.Repositories
                 using var connection = new SqlConnection(_connectionString);
                 await connection.OpenAsync();
 
-                string sql = "INSERT INTO Users (FirstName, LastName, Age, DateOfBirth, AddressID) VALUES (@FirstName, @LastName, @Age, @DateOfBirth, @AddressID); SELECT SCOPE_IDENTITY();";
+                string sql = "INSERT INTO Users (FirstName, LastName, Age, DateOfBirth) VALUES (@FirstName, @LastName, @Age, @DateOfBirth); SELECT SCOPE_IDENTITY();";
 
                 using var command = new SqlCommand(sql, connection);
 
@@ -36,7 +36,6 @@ namespace DataAccessLayer.Repositories
                 command.Parameters.AddWithValue("@LastName", user.LastName);
                 command.Parameters.AddWithValue("@Age", user.Age);
                 command.Parameters.AddWithValue("@DateOfBirth", user.DateOfBirth);
-                command.Parameters.AddWithValue("@AddressID", user.AddressID);
 
                 var result = await command.ExecuteScalarAsync();
                 return Convert.ToInt32(result);
@@ -68,8 +67,7 @@ namespace DataAccessLayer.Repositories
                         FirstName = reader.GetString("FirstName"),
                         LastName = reader.GetString("LastName"),
                         Age = reader.GetInt32("Age"),
-                        DateOfBirth = reader.GetDateTime("DateOfBirth"),
-                        AddressID = reader.GetInt32("AddressID")
+                        DateOfBirth = reader.GetDateTime("DateOfBirth")
                     };
                 }
 
@@ -97,7 +95,6 @@ namespace DataAccessLayer.Repositories
                 command.Parameters.AddWithValue("@LastName", user.LastName);
                 command.Parameters.AddWithValue("@Age", user.Age);
                 command.Parameters.AddWithValue("@DateOfBirth", user.DateOfBirth);
-                command.Parameters.AddWithValue("@AddressID", user.AddressID);
 
                 await command.ExecuteNonQueryAsync();
             }

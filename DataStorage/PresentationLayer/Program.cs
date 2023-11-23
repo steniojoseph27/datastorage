@@ -1,3 +1,5 @@
+using BusinessLogicLayer.Interfaces;
+using BusinessLogicLayer.Services;
 using DataAccessLayer.Repositories;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Extensions.Configuration;
@@ -14,6 +16,8 @@ builder.Services.AddLogging();
 
 var connectionString = builder.Configuration.GetConnectionString("SqlConnectionString");
 builder.Services.AddTransient<UserRepository>(provider => new UserRepository(connectionString, provider.GetRequiredService<ILogger<UserRepository>>()));
+
+builder.Services.AddTransient<IUserService, UserService>();
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
@@ -43,6 +47,6 @@ app.UseSwaggerUI();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=User}/{action=Index}/{id?}");
 
 app.Run();

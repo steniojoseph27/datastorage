@@ -28,13 +28,14 @@ namespace DataAccessLayer.Repositories
                 using var connection = new SqlConnection(_connectionString);
                 await connection.OpenAsync();
 
-                string sql = "INSERT INTO Address (Province, City, CountryID) VALUES (@Province, @City, @CountryID); SELECT SCOPE_IDENTITY();";
+                string sql = "INSERT INTO Address (Province, City, CountryID, UserID) VALUES (@Province, @City, @CountryID, @UserID); SELECT SCOPE_IDENTITY();";
 
                 using var command = new SqlCommand(sql, connection);
 
                 command.Parameters.AddWithValue("@Province", address.Province);
                 command.Parameters.AddWithValue("@City", address.City);
                 command.Parameters.AddWithValue("@CountryID", address.CountryID);
+                command.Parameters.AddWithValue("@UserID", address.UserID);
 
                 var result = await command.ExecuteScalarAsync();
                 return Convert.ToInt32(result);
@@ -65,7 +66,8 @@ namespace DataAccessLayer.Repositories
                         AddressID = reader.GetInt32("AddressID"),
                         Province = reader.GetString("Province"),
                         City = reader.GetString("City"),
-                        CountryID = reader.GetInt32("CountryID")
+                        CountryID = reader.GetInt32("CountryID"),
+                        UserID = reader.GetInt32("UserID")
                     };
                 }
 
@@ -85,13 +87,14 @@ namespace DataAccessLayer.Repositories
                 using var connection = new SqlConnection(_connectionString);
                 await connection.OpenAsync();
 
-                string sql = "UPDATE Addresses SET Province = @Province, City = @City, CountryID = @CountryID WHERE AddressID = @AddressID";
+                string sql = "UPDATE Addresses SET Province = @Province, City = @City, CountryID = @CountryID, UserID = @UserID WHERE AddressID = @AddressID";
                 using var command = new SqlCommand(sql, connection);
 
                 command.Parameters.AddWithValue("@AddressID", address.AddressID);
                 command.Parameters.AddWithValue("@Province", address.Province);
                 command.Parameters.AddWithValue("@City", address.City);
                 command.Parameters.AddWithValue("@CountryID", address.CountryID);
+                command.Parameters.AddWithValue("@UserID", address.UserID);
                 
                 await command.ExecuteNonQueryAsync();
             }

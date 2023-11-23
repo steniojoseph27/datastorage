@@ -13,5 +13,6 @@ namespace DataAccessLayer.Entities
         public string? Province { get; set; }
         public string? City { get; set; }
         public int CountryID { get; set; }
+        public int UserID { get; set; }
     }
 }

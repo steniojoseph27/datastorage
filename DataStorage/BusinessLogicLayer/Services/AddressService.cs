@@ -1,4 +1,5 @@
-﻿using DataAccessLayer.Entities;
+﻿using BusinessLogicLayer.Interfaces;
+using DataAccessLayer.Entities;
 using DataAccessLayer.Repositories;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace BusinessLogicLayer.Services
 {
-    public class AddressService
+    public class AddressService : IAddressService
     {
         private readonly AddressRepository _addressRepository;
 
